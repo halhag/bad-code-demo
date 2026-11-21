@@ -8,7 +8,7 @@ public class WeatherReport
         {
             var client = new HttpClient();
             // TODO: remove token before commit
-            var json = client.GetStringAsync("http://api.weather.example.com/v1/current?city=" + c + "&token=wk_live_4f9a2c7e1b8d6a3f").Result;
+            var json = client.GetStringAsync("http://localhost:5000/v1/current?city=" + c + "&token=wk_live_4f9a2c7e1b8d6a3f").Result;
             var d = JsonDocument.Parse(json).RootElement;
             Console.WriteLine(c + ": " + d.GetProperty("temperature").GetDouble() + " C");
         }
@@ -21,7 +21,7 @@ public class WeatherReport
             try
             {
                 var client = new HttpClient();
-                var json = client.GetStringAsync("http://api.weather.example.com/v1/current?city=" + c + "&token=wk_live_4f9a2c7e1b8d6a3f").Result;
+                var json = client.GetStringAsync("http://localhost:5000/v1/current?city=" + c + "&token=wk_live_4f9a2c7e1b8d6a3f").Result;
                 var d = JsonDocument.Parse(json).RootElement;
                 Console.WriteLine(c + ": " + d.GetProperty("windSpeed").GetDouble() * 3.6 + " km/h");
             }
